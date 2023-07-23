@@ -1,0 +1,44 @@
+<html>
+
+    <head>
+
+        <script src="https://kit.fontawesome.com/c99c1369c4.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="index.css" rel="stylesheet">
+        <script src="uv/uv.bundle.js"></script>
+        <script src="uv/uv.config.js"></script>
+        <script src="/register-sw.js"></script>
+        <title> Novogames 2.0 </title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    </head>
+
+    <body>
+        
+        <div id="webNavBar">
+            <p id="webNavBarText"><button class="webButton" onclick="close();" id="webButton1">i<i id="WebIcon" class="fa-solid fa-xmark" style="color: #ffffff;"></i></button></p>
+            <p id="webNavBarText"><button id="webButton"><i id="WebIcon" class="fa-solid fa-expand" style="color: #ffffff;"></i></button></p>
+            <div id="webBarColor"><p id="webNavBarTextSP">NG</p></div> 
+        </div>
+        <iframe id="gameIframe"></iframe>
+
+    </body>
+
+    <script>
+        
+        function proxySite(url) {
+            window.navigator.serviceWorker.register("/sw.js", {
+                scope: __uv$config.prefix,
+            }).then(() => {
+                document.getElementById("gameIframe").src = __uv$config.prefix +__uv$config.encodeUrl(url)
+            });
+        }
+    </script>
+    <head>
+        <script src="linkLoader.js"></script>
+        <script src="fullscreen.js"></script>
+    </head>
+
+</html>
